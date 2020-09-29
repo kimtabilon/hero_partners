@@ -152,7 +152,7 @@ class _EditState extends State<Edit>{
 
                         uidResult.updatePassword(PasswordController.text.trim()).then((_) async {
 
-                          var heroSnapshot = await FirebaseFirestore.instance.collection("hero_info").where('profile_id', isEqualTo: uidResult).get();
+                          var heroSnapshot = await FirebaseFirestore.instance.collection("hero").where('profile_id', isEqualTo: uidResult).get();
                           await db.collection('hero').doc(heroSnapshot.docs[0].id)
                               .update(
                               {
